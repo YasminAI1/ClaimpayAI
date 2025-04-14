@@ -1,0 +1,68 @@
+
+# Initialize components
+from .database import DatabaseManager
+from .vector_store import EnhancedVectorStore
+from .rag_system import EnhancedRAGSystem
+from .hybrid_agent import HybridQuerySystem
+
+def create_app(config: Config = None) -> Dict[str, Any]:
+    """
+    Initialize and return all necessary components for the application
+    """
+    if config is None:
+        config = Config()
+    
+    try:
+        # Initialize components
+        db_manager = DatabaseManager(config.DB_CONFIG)
+        vector_store = EnhancedVectorStore(
+            model_name=config.VECTOR_STORE_SETTINGS['model_name'],
+            model_kwargs={'device': config.VECTOR_STORE_SETTINGS['device']}
+        )
+        rag_system = EnhancedRAGSystem(
+            db_config=config.DB_CONFIG,
+            vector_store=vector_store,
+            table_configs=config.TABLE_CONFIGS
+        )
+        hybrid_system = HybridQuerySystem(
+            db_config=config.DB_CONFIG,
+            rag_system=rag_system
+        )
+        
+        # Initialize tables
+        for table_name, table_config in config.TABLE_CONFIGS.items():
+            try:
+                rag_system.initialize_table(
+                    table_name=table_name,
+                    key_columns=table_config['key_columns']
+                )
+                logger.info(f"Initialized table: {table_name}")
+            except Exception as e:
+                logger.error(f"Failed to initialize table {table_name}: {str(e)}")
+        
+        return {
+            'db_manager': db_manager,
+            'vector_store': vector_store,
+            'rag_system': rag_system,
+            'hybrid_system': hybrid_system,
+            'config': config
+        }
+        
+    except Exception as e:
+        logger.error(f"Failed to create application: {str(e)}")
+        raise
+
+# Version information
+__version__ = '1.0.0'
+__author__ = 'Yasmin Urrego'
+__email__ = 'yasmin@claimpay.net'
+
+# Export main components
+__all__ = [
+    'Config',
+    'DatabaseManager',
+    'EnhancedVectorStore',
+    'EnhancedRAGSystem',
+    'HybridQuerySystem',
+    'create_app'
+]

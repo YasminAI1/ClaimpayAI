@@ -1,0 +1,29 @@
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+pip install -r requirements.txt
+pip install -e .
+
+
+--If you're still getting the error, try creating a new Python file called run.py in your root directory:
+# run.py
+import os
+import sys
+from pathlib import Path
+
+# Add the project root directory to Python path
+current_dir = Path(__file__).resolve().parent
+sys.path.append(str(current_dir))
+
+# Import and run the Flask app
+from app import app
+
+if __name__ == '__main__':
+    app.run(debug=False)
+
+
+
+
+Then run:
+bashCopy
+
+python run.py

@@ -1,0 +1,11 @@
+Metadata-Version: 2.2
+Name: ai_claimpay
+Version: 1.0.0
+Requires-Dist: flask
+Requires-Dist: langchain
+Requires-Dist: langchain_anthropic
+Requires-Dist: sqlalchemy
+Requires-Dist: pandas
+Requires-Dist: python-dotenv
+Requires-Dist: mysql-connector-python
+Dynamic: requires-dist

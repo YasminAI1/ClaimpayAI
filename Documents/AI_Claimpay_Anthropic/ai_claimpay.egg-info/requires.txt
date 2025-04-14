@@ -1,0 +1,7 @@
+flask
+langchain
+langchain_anthropic
+sqlalchemy
+pandas
+python-dotenv
+mysql-connector-python

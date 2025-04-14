@@ -1,0 +1,21 @@
+AI_Claimpay_Anthropic/
+│
+├── app/
+│   ├── __init__.py
+│   ├── hybrid_agent.py
+│   ├── enhanced_rag.py
+│   └── database.py
+│
+├── templates/
+│   └── index.html
+│
+├── static/
+│   └── css/
+│       └── style.css
+│
+├── config/
+│   └── __init__.py
+│
+├── requirements.txt
+└── app.py
+└── excel_reports

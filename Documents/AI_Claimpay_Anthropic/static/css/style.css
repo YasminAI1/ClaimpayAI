@@ -1,0 +1,87 @@
+/* static/css/style.css */
+body {
+    /* Fallback background color */
+    background-color: #f5f5f5;
+    /* WebP background */
+    background-image: url('/static/background.webp');
+    /* Fallback image for browsers that don't support WebP */
+    background-image: url('/static/background.webp');
+}
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f5f5f5;
+}
+
+#chat-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 20px;
+}
+
+#chat-box {
+    height: 500px;
+    overflow-y: auto;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+}
+
+#input-container {
+    display: flex;
+    gap: 10px;
+}
+
+#query-input {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+#submit-btn {
+    padding: 8px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.message {
+    margin-bottom: 10px;
+    padding: 8px;
+    border-radius: 4px;
+}
+
+.analytical-response {
+    background-color: #e3f2fd;
+}
+
+.excel-download {
+    display: inline-block;
+    padding: 8px 15px;
+    background-color: #1d6f42;
+    color: white !important;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 10px;
+    font-size: 14px;
+}
+.excel-download:hover {
+    background-color: #155a35;
+}
+
+.semantic-response {
+    background-color: #f1f8e9;
+}
+/*@media (max-width: 768px) {
+    body {
+        background-image: url('':/Users/yasmin/Documents/AI_Claimpay_Anthropic/static/background.webp');
+    }
+}
