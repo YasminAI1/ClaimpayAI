@@ -18,7 +18,7 @@ sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 # Set API key if it's not already in environment variables
 if 'ANTHROPIC_API_KEY' not in os.environ:
     os.environ['ANTHROPIC_API_KEY'] = os.getenv('ANTHROPIC_API_KEY')
-
+    
 # Configure logging and environment variables
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 load_dotenv()
